@@ -1,0 +1,15 @@
+README:
+
+### BEFORE YOU RUN THE PROGRAM ###
+
+In order to run the program you will need to run first the script flight_scanner.sh.
+
+All of the program is managed within the cmake-build-debug folder that is generated.
+This means the script has to be ran first in cmake-build-debug and then you can use the program.
+
+### WHILE THE PROGRAM IS RUNNING
+
+Input inside the program for options 1-3 is the same as in the script. This means that when you are requested to input
+An airport or an ICAO24 you need to input the like this "LLBG EGKK EGGW" and press enter.
+After the enter is pressed you can't add any more strings to input for option until you choose it again.
+
