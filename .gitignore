@@ -59,3 +59,4 @@
 /.vscode/tasks.json
 /build/.cmake/api/v1/reply/toolchains-v1-074db5775ec40502811a.json
 /build/CMakeFiles/VerifyGlobs.cmake
+/cmake-build-debug/Testing/
