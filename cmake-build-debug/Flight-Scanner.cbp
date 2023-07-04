@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Flight-Scanner"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\lib\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Flight-Scanner">
+				<Option output="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Flight-Scanner" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src"/>
+					<Add directory="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib"/>
+					<Add directory="/usr/include/c++/12"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/include/c++/12/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 Flight-Scanner"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Flight-Scanner/fast">
+				<Option output="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Flight-Scanner" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src"/>
+					<Add directory="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib"/>
+					<Add directory="/usr/include/c++/12"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/include/c++/12/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 Flight-Scanner/fast"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lib">
+				<Option output="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/liblib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib"/>
+					<Add directory="/usr/include/c++/12"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/include/c++/12/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 lib"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lib/fast">
+				<Option output="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/liblib.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib"/>
+					<Add directory="/usr/include/c++/12"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/12"/>
+					<Add directory="/usr/include/c++/12/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/12/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 lib/fast"/>
+					<CompileFile command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j2 -f &quot;/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib/AirportFlights.cpp">
+			<Option target="lib"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib/AirportFlights.h">
+			<Option target="lib"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib/Flight.cpp">
+			<Option target="lib"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib/Flight.h">
+			<Option target="lib"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib/Functions.cpp">
+			<Option target="lib"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib/Functions.h">
+			<Option target="lib"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src/child_process.cpp">
+			<Option target="Flight-Scanner"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src/child_process.h">
+			<Option target="Flight-Scanner"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src/main.cpp">
+			<Option target="Flight-Scanner"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src/parent_process.cpp">
+			<Option target="Flight-Scanner"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src/parent_process.h">
+			<Option target="Flight-Scanner"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src/program_manager.cpp">
+			<Option target="Flight-Scanner"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src/program_manager.h">
+			<Option target="Flight-Scanner"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src/programs.cpp">
+			<Option target="Flight-Scanner"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/src/programs.h">
+			<Option target="Flight-Scanner"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/cmake-build-debug/flight_scanner.sh">
+			<Option virtualFolder="CMake Files\cmake-build-debug\"/>
+		</Unit>
+		<Unit filename="/home/roy12/CLionProjects/Linux-Assignment/Flight-Scanner/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

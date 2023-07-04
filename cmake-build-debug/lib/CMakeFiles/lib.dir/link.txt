@@ -1,0 +1,2 @@
+/usr/bin/ar qc liblib.a CMakeFiles/lib.dir/AirportFlights.cpp.o CMakeFiles/lib.dir/Flight.cpp.o CMakeFiles/lib.dir/Functions.cpp.o
+/usr/bin/ranlib liblib.a
