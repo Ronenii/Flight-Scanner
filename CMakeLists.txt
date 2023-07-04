@@ -24,4 +24,4 @@ target_include_directories(Flight-Scanner PUBLIC
         "/usr/local/include/"
         )
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${SCRIPT_FILE} ${CMAKE_BINARY_DIR}/${SCRIPT_FILE} COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${MAIN_FILE} ${CMAKE_BINARY_DIR}/${SCRIPT_FILE} COPYONLY)

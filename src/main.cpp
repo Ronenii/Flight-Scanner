@@ -2,39 +2,46 @@
 #include "programs.h"
 
 int main() {
+
+    string namedPipeMainToChild = "namedPipeMainToChild";
+    string namedPipeChildToMain = "namedPipeChildToMain";
+    mkfifo(namedPipeMainToChild.c_str(), 0666);
+    mkfifo(namedPipeChildToMain.c_str(), 0666);
+
+    int namedPipeMainToChildFD, namedPipeChildToMainFD;
+    namedPipeMainToChildFD = open(namedPipeMainToChild.c_str(), O_RDWR);
+    namedPipeChildToMainFD = open(namedPipeChildToMain.c_str(), O_RDWR);
+
     // Define the pipes used
-    static int pipeMainToChildFD[2];
-    static int pipeChildToMainFD[2];
+
 
     pid_t currPID, childPID;
 
     try {
         unzipDB();
-        createNewPipe(pipeMainToChildFD);
-        createNewPipe(pipeChildToMainFD);
         currPID = createNewProcess();
 
         // Get the child PID
-        childPID = sendChildPIDtoParent(pipeChildToMainFD, currPID);
+        childPID = sendChildPIDtoParent(namedPipeChildToMainFD, currPID);
 
         if (currPID != CHILD_PROCESS_ID) {
             signal(SIGINT, signalHandlerMainProcess);
             setpgid(0, childPID);
-            parentProcessTask(pipeMainToChildFD, pipeChildToMainFD, childPID);
+            parentProcessTask(namedPipeMainToChildFD, namedPipeChildToMainFD, childPID);
 
             // close write and read pipes which were in use
-            close(pipeChildToMainFD[READ_END]);
-            close(pipeMainToChildFD[WRITE_END]);
+            close(namedPipeChildToMainFD);
+            close(namedPipeMainToChildFD);
         } else {
             // Allow child process' signal handler to handle SIGUSR1 and SIGUSR2
             signal(SIGUSR1, signalHandler);
             signal(SIGINT, signalHandler);
 
-            childProcessTask(pipeMainToChildFD, pipeChildToMainFD);
+            childProcessTask(namedPipeMainToChildFD, namedPipeChildToMainFD);
 
             // close write and read pipes which were in use
-            close(pipeMainToChildFD[READ_END]);
-            close(pipeChildToMainFD[WRITE_END]);
+            close(namedPipeMainToChildFD);
+            close(namedPipeChildToMainFD);
         }
     }
     catch (exception& e) {

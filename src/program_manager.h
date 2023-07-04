@@ -7,7 +7,9 @@
 #include <cstring>
 #include <string>
 #include <unistd.h>
+#include <fcntl.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <filesystem>
 #include "programs.h"
 #include "exception"
@@ -31,19 +33,19 @@ void clearScreen();
 
 void waitForUserInputToContinue();
 
-void createNewPipe(int *pipeFd);
+void createNewPipe(int pipeFd);
 
 pid_t createNewProcess();
 
-string readStringFromChild(int *pipeFd);
+string readStringFromChild(int pipeFd);
 
 int getUserOpcodeInput();
 
-pid_t sendChildPIDtoParent(int *pipeFd, pid_t pid);
+pid_t sendChildPIDtoParent(int pipeFd, pid_t pid);
 
 void bufferFlush();
 
-string readStringFromParent(int *pipefd);
+string readStringFromParent(int pipefd);
 
 void unzipDB();
 

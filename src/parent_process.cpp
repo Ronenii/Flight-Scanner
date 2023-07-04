@@ -4,12 +4,8 @@
 // 1) Get opcode input from user and write it to pipe
 // 2) Once written, wait until child process writes back the result
 // 3) prints said result
-void parentProcessTask(int *pipeMainToChildFD,  int *pipeChildToMainFD, int childPid) {
+void parentProcessTask(int namedPipeMainToChildFD,  int namedPipeChildToMainFD, int childPid) {
     int opCode;
-
-    // Close pipe ends that are not in use
-    close(pipeMainToChildFD[READ_END]);
-    close(pipeChildToMainFD[WRITE_END]);
 
     do {
         clearScreen();
@@ -20,14 +16,14 @@ void parentProcessTask(int *pipeMainToChildFD,  int *pipeChildToMainFD, int chil
             // In case user choose options 6-7
             if(opCode > OPTION_NUM_FIVE)
             {
-                handleNonChildTasks(opCode, childPid, pipeChildToMainFD);
+                handleNonChildTasks(opCode, childPid, namedPipeChildToMainFD);
             }
             // In case user choose options 1-5
             else {
-                writeParametersToChildProcess(pipeMainToChildFD, opCode);
+                writeParametersToChildProcess(namedPipeMainToChildFD, opCode);
 
                 // Read the result from the child process and prints it
-                string result = readStringFromChild(pipeChildToMainFD);
+                string result = readStringFromChild(namedPipeChildToMainFD);
             }
             if(opCode == 5 || opCode == 6) // Clear buffer after the use of some of the functions
                 bufferFlush(); // needed to clear the buffer in order to make the getchar() to wait for the user's input
@@ -40,20 +36,20 @@ void parentProcessTask(int *pipeMainToChildFD,  int *pipeChildToMainFD, int chil
     } while (static_cast<MenuOptions>(opCode) != MenuOptions::GracefulExit);
 }
 
-void writeParametersToChildProcess(int *pipeMainToChildFD, int opCode)
+void writeParametersToChildProcess(int namedPipeMainToChildFD, int opCode)
 {
-    write(pipeMainToChildFD[WRITE_END], &opCode, sizeof(opCode)); // Send opCode to the child process.
+    write(namedPipeMainToChildFD, &opCode, sizeof(opCode)); // Send opCode to the child process.
 
     // In case of options 1-3, need to send input params.
     if(opCode <= 3 && opCode >= 1) {
-        getParamsFromUserAndSendToChild(pipeMainToChildFD, opCode);
+        getParamsFromUserAndSendToChild(namedPipeMainToChildFD, opCode);
     }
 }
 
-void getParamsFromUserAndSendToChild(int *pipeMainToChildFD, int opCode)
+void getParamsFromUserAndSendToChild(int namedPipeMainToChildFD, int opCode)
 {
     string userInput = getStringsListFromUser(opCode);
-    write(pipeMainToChildFD[WRITE_END],userInput.c_str(), userInput.length());
+    write(namedPipeMainToChildFD, userInput.c_str(), userInput.length());
 }
 
 // User inputs multiple string in the line and the func combine them together with a delimiter and return the string.
@@ -85,7 +81,7 @@ void printMessageByOpCode(int opCode)
 }
 
 // Handle tasks in main process when the user choose options 6-7.
-void handleNonChildTasks(int opCode, int childPid, int* pipeChildToMainFD)
+void handleNonChildTasks(int opCode, int childPid, int namedPipeChildToMainFD)
 {
     MenuOptions userInput = static_cast<MenuOptions>(opCode); // Cast opCode to enum
 
@@ -95,7 +91,7 @@ void handleNonChildTasks(int opCode, int childPid, int* pipeChildToMainFD)
             break;
         case MenuOptions::GracefulExit:
             cout << "Closing the program, Goodbye." << endl << endl;
-            gracefulExit(childPid, pipeChildToMainFD);
+            gracefulExit(childPid, namedPipeChildToMainFD);
         default:
             cout << "Input not listed on menu" << endl;
             break;
@@ -104,7 +100,7 @@ void handleNonChildTasks(int opCode, int childPid, int* pipeChildToMainFD)
 
 
 // Send SIGUSR1 signal to child process to terminate it, then terminates the main process
-void gracefulExit(int childPid, int* pipeChildToMainFD) {
+void gracefulExit(int childPid, int namedPipeChildToMainFD) {
     // Wait for child process to finish
     int res = kill(childPid, SIGUSR1);
 
@@ -117,10 +113,6 @@ void gracefulExit(int childPid, int* pipeChildToMainFD) {
     // Wait for the child process to exit, obtain the exit status
     int status;
     waitpid(childPid, &status, 0);
-
-    // Read the result from the child process and prints it
-    string result = readStringFromChild(pipeChildToMainFD);
-    cout << result << endl;
 
     // Print the status
     if (WIFEXITED(status)) {

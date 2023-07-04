@@ -5,18 +5,14 @@
 // 1) Wait until opcode is read from the pipe
 // 2) Once opcode is read successfully execute its task
 // 3) Writes to pipe the result of the process
-void childProcessTask(int *pipeMainToChildFD, int *pipeChildToMainFD) {
+void childProcessTask(int namedPipeMainToChildFD, int namedPipeChildToMainFD) {
     int opCode, size;
     string res;
     vector<string> inputParams;
 
-    // Close pipe ends that are not in use
-    close(pipeMainToChildFD[WRITE_END]);
-    close(pipeChildToMainFD[READ_END]);
-
     // Will run in this loop, until the main process sends a signal to stop
     while(true) {
-        inputParams = getOpCodeAndInputParamsFromPipe(pipeMainToChildFD, pipeChildToMainFD, opCode);
+        inputParams = getOpCodeAndInputParamsFromPipe(namedPipeMainToChildFD, namedPipeChildToMainFD, opCode);
         MenuOptions userInput = static_cast<MenuOptions>(opCode); // Cast opCode to enum
 
         switch (userInput) {
@@ -39,25 +35,26 @@ void childProcessTask(int *pipeMainToChildFD, int *pipeChildToMainFD) {
                 cout << "Invalid operation code." << endl;
                 break;
         }
+
         size = res.length()+1;
-        write(pipeChildToMainFD[WRITE_END],&size, sizeof(size));
-        write(pipeChildToMainFD[WRITE_END], res.c_str(), size);
+        write(namedPipeChildToMainFD, &size, sizeof(size));
+        write(namedPipeChildToMainFD, res.c_str(), size);
     }
 }
 
 
 // Waits until receiving an opcode, returns it if valid, otherwise throw exception
-vector<string> getOpCodeAndInputParamsFromPipe(int *pipeMainToChildFD, int *pipeChildToMainFD, int &opCode) {
+vector<string> getOpCodeAndInputParamsFromPipe(int namedPipeMainToChildFD, int namedPipeChildToMainFD, int &opCode) {
     vector<string> inputParams;
 
     // Read op-code from pipe
-    if (read(pipeMainToChildFD[READ_END], &opCode, sizeof(opCode)) != sizeof(opCode)) {
+    if (read(namedPipeMainToChildFD, &opCode, sizeof(opCode)) != sizeof(opCode)) {
         throw runtime_error("Error reading opCode");
     }
 
     // If the user choose options 1-3, input parameters will be sent.
     if (opCode <= 3 && opCode >= 1) {
-        inputParams = getInputParametersFromMain(pipeMainToChildFD, pipeChildToMainFD);
+        inputParams = getInputParametersFromMain(namedPipeMainToChildFD, namedPipeChildToMainFD);
     }
 
     return inputParams;
@@ -65,22 +62,22 @@ vector<string> getOpCodeAndInputParamsFromPipe(int *pipeMainToChildFD, int *pipe
 
 
 // When user choose options 1-3, child process will recive input parameters using this function.
-vector<string> getInputParametersFromMain(int *pipeMainToChildFD, int *pipeChildToMainFD) {
+vector<string> getInputParametersFromMain(int namedPipeMainToChildFD, int namedPipeChildToMainFD) {
     vector<string> inputParameters;
 
     // Reading the input pramas and store the data in a string vector.
-    inputParameters = convertInputParamsToVector(pipeMainToChildFD);
+    inputParameters = convertInputParamsToVector(namedPipeMainToChildFD);
 
     return inputParameters;
 }
 
 
 // Reciving a string from main process with delimiters and put each string in a string vector.
-vector<string> convertInputParamsToVector(int *pipeMainToChildFD) {
+vector<string> convertInputParamsToVector(int namedPipeMainToChildFD) {
     vector<string> res;
     string inputParams;
 
-    inputParams = readStringFromParent(pipeMainToChildFD);
+    inputParams = readStringFromParent(namedPipeMainToChildFD);
 
     char *cInputParams = new char[inputParams.length() + 1]; // convert string to char* in order to use strtok.
     strcpy(cInputParams, inputParams.c_str());

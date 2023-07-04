@@ -3,13 +3,13 @@
 
 #include "parent_process.h"
 
-vector<string> convertInputParamsToVector(int *pipeMainToChildFD);
+vector<string> convertInputParamsToVector(int namedPipeMainToChildFD);
 
-vector<string> getInputParametersFromMain(int *pipeMainToChildFD, int *pipeChildToMainFD);
+vector<string> getInputParametersFromMain(int namedPipeMainToChildFD, int namedPipeChildToMainFD);
 
-void childProcessTask(int *pipeMainToChildFD, int *pipeChildToMainFD);
+void childProcessTask(int namedPipeMainToChildFD, int namedPipeChildToMainFD);
 
-vector<string> getOpCodeAndInputParamsFromPipe(int *pipeMainToChildFD, int *pipeChildToMainFD, int &opCode);
+vector<string> getOpCodeAndInputParamsFromPipe(int namedPipeMainToChildFD, int namedPipeChildToMainFD, int &opCode);
 
 void signalHandler(int signal);
 

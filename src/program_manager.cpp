@@ -45,14 +45,14 @@ void waitForUserInputToContinue() {
 
 
 // Read the size of the string received, read the message
-string readStringFromChild(int* pipefd)
+string readStringFromChild(int pipefd)
 {
     int stringSize;
     string output;
 
-    read(pipefd[READ_END],&stringSize, sizeof(stringSize));
+    read(pipefd,&stringSize, sizeof(stringSize));
     char buffer[stringSize];
-    read(pipefd[READ_END],buffer,sizeof(buffer));
+    read(pipefd,buffer,sizeof(buffer));
 
     cout<< buffer<< endl;
 
@@ -76,14 +76,14 @@ int getUserOpcodeInput() {
 // If we are inside the child process, then write the childPID to parent pipe.
 // otherwise if we are in the parent process then read the child PID.
 // In either case return it.
-pid_t sendChildPIDtoParent(int* pipeFd, pid_t pid) {
+pid_t sendChildPIDtoParent(int pipeFd, pid_t pid) {
     pid_t childPid;
     if(pid == CHILD_PROCESS_ID) {
         childPid = getpid();
-        write(pipeFd[WRITE_END], &childPid, sizeof (pid_t));
+        write(pipeFd, &childPid, sizeof (pid_t));
     }
     else {
-        read(pipeFd[READ_END], &childPid, sizeof(pid_t));
+        read(pipeFd, &childPid, sizeof(pid_t));
     }
     return childPid;
 }
@@ -97,11 +97,11 @@ void bufferFlush() {
 
 // Read the received string from parent. This function doesn't use while loop in order to read
 // the string from the main process.
-string readStringFromParent(int* pipefd)
+string readStringFromParent(int pipefd)
 {
     ssize_t bytesRead;
     char buffer[4096];
-    bytesRead = read(pipefd[READ_END], buffer, sizeof(buffer));
+    bytesRead = read(pipefd, buffer, sizeof(buffer));
     if (bytesRead > 0) {
         string receivedMessage(buffer, bytesRead);
         return receivedMessage;
