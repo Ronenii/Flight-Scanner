@@ -1,6 +1,5 @@
 # Project exclude paths
-!/cmake-build-debug/flight_scanner.sh
-/cmake-build-debug/
+/cmake-build-debug
 /flightsDB/
 /.idea/.name
 /build/CMakeFiles/3.22.1/CompilerIdC/a.out
