@@ -43,6 +43,8 @@ int main() {
             close(namedPipeMainToChildFD);
             close(namedPipeChildToMainFD);
         }
+        unlink(namedPipeMainToChild.c_str());
+        unlink(namedPipeChildToMain.c_str());
     }
     catch (exception& e) {
         cout << e.what() << endl;
