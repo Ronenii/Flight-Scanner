@@ -8,7 +8,7 @@ add_subdirectory(lib)
 
 # Add main.cpp file of project root directory as source file
 set(MAIN_FILE src/main.cpp)
-set(SCRIPT_FILE flight_scanner.sh)
+set(SCRIPT_FILE cmake-build-debug/flight_scanner.sh)
 
 #add all src files
 file(GLOB SRC_FILES CONFIGURE_DEPENDS "src/*.cpp")
@@ -24,4 +24,4 @@ target_include_directories(Flight-Scanner PUBLIC
         "/usr/local/include/"
         )
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${MAIN_FILE} ${CMAKE_BINARY_DIR}/${SCRIPT_FILE} COPYONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${SCRIPT_FILE} ${CMAKE_BINARY_DIR}/${SCRIPT_FILE} COPYONLY)
