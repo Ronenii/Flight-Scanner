@@ -12,9 +12,6 @@ int main() {
     namedPipeMainToChildFD = open(namedPipeMainToChild.c_str(), O_RDWR);
     namedPipeChildToMainFD = open(namedPipeChildToMain.c_str(), O_RDWR);
 
-    // Define the pipes used
-
-
     pid_t currPID, childPID;
 
     try {
